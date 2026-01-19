@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce8f2llvc3r2t"]
+
+[ext_resource type="PackedScene" uid="uid://1q03c0ydsbeq" path="res://scenes/question.tscn" id="1_2q6dc"]
+[ext_resource type="Texture2D" uid="uid://du0aafm3p3e75" path="res://images/bg-cloud.png" id="2_w7c3h"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(523.99994, 576.00006)
+scale = Vector2(0.9876567, 1.148503)
+texture = ExtResource("2_w7c3h")
+
+[node name="Question" parent="." instance=ExtResource("1_2q6dc")]
+position = Vector2(300, 0)
