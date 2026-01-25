@@ -1,14 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce8f2llvc3r2t"]
+[gd_scene load_steps=4 format=3 uid="uid://ce8f2llvc3r2t"]
 
 [ext_resource type="PackedScene" uid="uid://1q03c0ydsbeq" path="res://scenes/question.tscn" id="1_2q6dc"]
-[ext_resource type="Texture2D" uid="uid://du0aafm3p3e75" path="res://images/bg-cloud.png" id="2_w7c3h"]
+[ext_resource type="Texture2D" uid="uid://ca8ndfhw72cma" path="res://images/bg-cloud.png" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://b66ivipvk8221" path="res://scenes/minibox.tscn" id="3_w8frs"]
 
 [node name="Level" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(523.99994, 576.00006)
+position = Vector2(581.99994, 576)
 scale = Vector2(0.9876567, 1.148503)
 texture = ExtResource("2_w7c3h")
 
 [node name="Question" parent="." instance=ExtResource("1_2q6dc")]
 position = Vector2(300, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="MiniBox" parent="CanvasLayer/VBoxContainer" instance=ExtResource("3_w8frs")]
+layout_mode = 2
