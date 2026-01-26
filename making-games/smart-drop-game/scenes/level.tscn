@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ce8f2llvc3r2t"]
+[gd_scene load_steps=4 format=3 uid="uid://ce8f2llvc3r2t"]
 
-[ext_resource type="PackedScene" uid="uid://1q03c0ydsbeq" path="res://scenes/question.tscn" id="1_2q6dc"]
-[ext_resource type="Script" uid="uid://c3sic5fb4luur" path="res://scenes/level.gd" id="1_mx8sn"]
+[ext_resource type="Script" uid="uid://b2c6621oeko8a" path="res://scenes/level.gd" id="1_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://du0aafm3p3e75" path="res://images/bg-cloud.png" id="2_w7c3h"]
 [ext_resource type="PackedScene" uid="uid://b66ivipvk8221" path="res://scenes/minibox.tscn" id="3_w8frs"]
 
@@ -12,9 +11,6 @@ script = ExtResource("1_mx8sn")
 position = Vector2(581.99994, 576)
 scale = Vector2(0.9876567, 1.148503)
 texture = ExtResource("2_w7c3h")
-
-[node name="Question" parent="." instance=ExtResource("1_2q6dc")]
-position = Vector2(300, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -29,4 +25,4 @@ alignment = 2
 [node name="MiniBox" parent="CanvasLayer/VBoxContainer" instance=ExtResource("3_w8frs")]
 layout_mode = 2
 
-[connection signal="missed" from="Question" to="." method="_on_question_missed"]
+[connection signal="selected" from="CanvasLayer/VBoxContainer/MiniBox" to="." method="_on_answer_selected"]

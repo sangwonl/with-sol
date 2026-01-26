@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b66ivipvk8221"]
 
-[ext_resource type="Script" uid="uid://d1f6py5tdlmb1" path="res://scenes/minibox.gd" id="1_slvxl"]
+[ext_resource type="Script" uid="uid://d3sa1f7i26mbi" path="res://scenes/minibox.gd" id="1_slvxl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4y86"]
 bg_color = Color(0.8627451, 0.49411765, 0.15294118, 1)
@@ -40,30 +40,55 @@ alignment = 1
 custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_slvxl")
 
 [node name="Button2" type="Button" parent="PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_slvxl")
 
 [node name="Button3" type="Button" parent="PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_slvxl")
 
 [node name="Button4" type="Button" parent="PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_slvxl")
 
 [node name="Button5" type="Button" parent="PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_slvxl")
 
 [connection signal="pressed" from="PanelContainer/HBoxContainer/Button1" to="." method="_on_button_pressed" binds= [0]]

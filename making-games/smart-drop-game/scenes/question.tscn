@@ -1,12 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://1q03c0ydsbeq"]
+[gd_scene load_steps=3 format=3 uid="uid://1q03c0ydsbeq"]
 
 [ext_resource type="Script" uid="uid://bplr446gn2ckq" path="res://scenes/question.gd" id="1_lk18j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk18j"]
+bg_color = Color(0.90866476, 0.6260627, 0.8462742, 1)
 
 [node name="Question" type="Node2D" groups=["questions"]]
 script = ExtResource("1_lk18j")
 
 [node name="Text" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 119.0
+offset_bottom = 49.0
 theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lk18j")
 text = "23 + 58"
