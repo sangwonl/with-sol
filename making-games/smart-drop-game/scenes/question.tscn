@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bplr446gn2ckq" path="res://scenes/question.gd" id="1_lk18j"]
 
-[node name="Question" type="Node2D"]
+[node name="Question" type="Node2D" groups=["questions"]]
 script = ExtResource("1_lk18j")
 
 [node name="Text" type="Label" parent="."]

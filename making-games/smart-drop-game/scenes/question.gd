@@ -1,5 +1,7 @@
 extends Node2D
 
+signal missed
+
 var first_value := 0
 var second_value := 0
 
@@ -16,7 +18,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position = position + Vector2(0.0, 1.0) * 150 * delta
-
+	if position.y > Global.bottomLineY:
+		missed.emit()
+		queue_free()
+	
 func random_digits(digits: int) -> int:
 	if digits <= 0:
 		return 0

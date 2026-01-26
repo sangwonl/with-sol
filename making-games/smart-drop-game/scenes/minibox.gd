@@ -10,6 +10,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.bottomLineY = $PanelContainer.global_position.y	
+	print('bottom line: %d' % Global.bottomLineY)
+
 	for i in range(buttons.size()):
 		buttons[i].set_meta("value", i + 30)
 
