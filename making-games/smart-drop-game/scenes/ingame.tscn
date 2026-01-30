@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce8f2llvc3r2t"]
+
+[ext_resource type="Script" uid="uid://b2c6621oeko8a" path="res://scenes/ingame.gd" id="1_afxy4"]
+[ext_resource type="Texture2D" uid="uid://du0aafm3p3e75" path="res://images/bg-cloud.png" id="2_cjbnt"]
+[ext_resource type="PackedScene" uid="uid://bd5sygerts5uj" path="res://scenes/scorebox.tscn" id="3_giyuh"]
+[ext_resource type="PackedScene" uid="uid://b66ivipvk8221" path="res://scenes/minibox.tscn" id="4_gw74v"]
+
+[node name="InGame" type="Node2D"]
+script = ExtResource("1_afxy4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(581.99994, 576)
+scale = Vector2(0.9876567, 1.148503)
+texture = ExtResource("2_cjbnt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="ScoreBox" parent="CanvasLayer/VBoxContainer" instance=ExtResource("3_giyuh")]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MiniBox" parent="CanvasLayer/VBoxContainer" instance=ExtResource("4_gw74v")]
+layout_mode = 2
+
+[connection signal="selected" from="CanvasLayer/VBoxContainer/MiniBox" to="." method="_on_answer_selected"]
