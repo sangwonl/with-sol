@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ce8f2llvc3r2t"]
+[gd_scene load_steps=5 format=3 uid="uid://ce8f2llvc3r2t"]
 
 [ext_resource type="Script" uid="uid://b2c6621oeko8a" path="res://scenes/level.gd" id="1_mx8sn"]
 [ext_resource type="Texture2D" uid="uid://du0aafm3p3e75" path="res://images/bg-cloud.png" id="2_w7c3h"]
+[ext_resource type="PackedScene" uid="uid://bd5sygerts5uj" path="res://scenes/scorebox.tscn" id="3_mx8sn"]
 [ext_resource type="PackedScene" uid="uid://b66ivipvk8221" path="res://scenes/minibox.tscn" id="3_w8frs"]
 
 [node name="Level" type="Node2D"]
@@ -21,6 +22,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
+
+[node name="ScoreBox" parent="CanvasLayer/VBoxContainer" instance=ExtResource("3_mx8sn")]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="MiniBox" parent="CanvasLayer/VBoxContainer" instance=ExtResource("3_w8frs")]
 layout_mode = 2

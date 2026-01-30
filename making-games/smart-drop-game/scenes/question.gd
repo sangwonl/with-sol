@@ -1,7 +1,6 @@
 extends Node2D
 
 signal answered
-signal missed
 
 var first_value := 0
 var second_value := 0
@@ -33,5 +32,5 @@ func _process(delta: float) -> void:
 	const buffer = 30
 	position += Vector2(0.0, 1.0) * drop_speed * delta
 	if position.y > Global.bottom_line_y - buffer:
-		missed.emit()
+		answered.emit(false)
 		queue_free()
