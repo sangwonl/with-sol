@@ -30,7 +30,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	const buffer = 30
 	position += Vector2(0.0, 1.0) * drop_speed * delta
-	if position.y > Global.bottom_line_y:
+	if position.y > Global.bottom_line_y - buffer:
 		missed.emit()
 		queue_free()

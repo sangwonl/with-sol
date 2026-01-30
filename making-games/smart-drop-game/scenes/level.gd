@@ -10,6 +10,8 @@ var cur_question = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.top_line_y = 0
+	Global.question_timeout = 5
 	spawn_question()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,13 +22,15 @@ func spawn_question():
 	# setup question
 	var question = question_scene.instantiate()
 
-	var speed = 100
+	var runway_height = Global.bottom_line_y - Global.top_line_y
+	var speed = runway_height / Global.question_timeout
 	var a = random_digits(2)
 	var b = random_digits(2)
 	question.setup(a, b, speed)
 	
+	const buffer = 40
 	var viewport = get_viewport().get_visible_rect()
-	var pos_x = randi_range(0, viewport.size.x)
+	var pos_x = randi_range(buffer, viewport.size.x - buffer)
 	question.position = Vector2(pos_x, 0)
 	
 	question.answered.connect(_on_question_answered)

@@ -1,6 +1,8 @@
 extends Node
 
+var top_line_y: float = 0
 var bottom_line_y: float = 0
+var question_timeout: float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
