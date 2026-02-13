@@ -7,28 +7,28 @@ var question_scene = preload("res://scenes/question.tscn")
 var correct := 0
 var missed := 0
 var total := 20
-var question_timeout = 10
 var question_speed = 0
 var cur_question_index = 0
 var cur_question = null
 
-func start_game(timeout: int):
+func start_game():
 	correct = 0
 	missed = 0
 	cur_question_index = 0
-	
+
 	var runway_height = Global.bottom_line_y - Global.top_line_y
-	question_speed = runway_height / question_timeout
-	
+	question_speed = runway_height / Global.time_per_question
+
 	spawn_question()
 
 func game_over():
 	print("game over...")
+	get_tree().change_scene_to_file("res://scenes/home.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.top_line_y = 0
-	start_game(10)
+	start_game()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -38,12 +38,13 @@ func spawn_question():
 	if cur_question_index >= total:
 		game_over()
 		return
-	
+
 	# setup question
 	var question = question_scene.instantiate()
 
-	var a = random_digits(2)
-	var b = random_digits(2)
+	var digit_range = Global.get_digit_range()
+	var a = randi_range(digit_range.min, digit_range.max)
+	var b = randi_range(digit_range.min, digit_range.max)
 	question.setup(a, b, question_speed)
 	
 	const buffer = 120
@@ -60,8 +61,9 @@ func spawn_question():
 
 	# setup minibox
 	var answer = a + b
-	var rangeMin = max(answer - 200, 1)
-	var rangeMax = answer + 200
+	var spread = digit_range.max  # spread based on difficulty
+	var rangeMin = max(answer - spread, 1)
+	var rangeMax = answer + spread
 	var option_values = get_random_unique(4, rangeMin, rangeMax)
 	option_values.append(answer)
 	option_values.shuffle()

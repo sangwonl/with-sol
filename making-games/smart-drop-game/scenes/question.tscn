@@ -2,17 +2,36 @@
 
 [ext_resource type="Script" uid="uid://bplr446gn2ckq" path="res://scenes/question.gd" id="1_lk18j"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lk18j"]
-bg_color = Color(0.90866476, 0.6260627, 0.8462742, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_question_bubble"]
+bg_color = Color(0.878, 0.953, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.176, 0.204, 0.212, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 6
+shadow_offset = Vector2(2, 2)
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
 
 [node name="Question" type="Node2D" groups=["questions"]]
 script = ExtResource("1_lk18j")
 
 [node name="Text" type="Label" parent="."]
-offset_left = 10.0
-offset_top = 4.0
-offset_right = 119.0
-offset_bottom = 49.0
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_lk18j")
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 150.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_question_bubble")
 text = "23 + 58"
+horizontal_alignment = 1
+vertical_alignment = 1

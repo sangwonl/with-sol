@@ -1,16 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd5sygerts5uj"]
+[gd_scene load_steps=6 format=3 uid="uid://bd5sygerts5uj"]
 
 [ext_resource type="Script" uid="uid://hjlxapveu4u6" path="res://scenes/scorebox.gd" id="1_uvh6k"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvh6k"]
-bg_color = Color(0.8627451, 0.49411765, 0.15294118, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_score_panel"]
+content_margin_left = 20.0
+content_margin_top = 12.0
+content_margin_right = 20.0
+content_margin_bottom = 12.0
+bg_color = Color(0.31, 0.765, 0.969, 1)
+border_width_bottom = 3
+border_color = Color(0.176, 0.204, 0.212, 1)
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tin06"]
-bg_color = Color(0.95503956, 0.30889833, 0.6987894, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_back_btn"]
+content_margin_left = 8.0
+content_margin_top = 4.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.176, 0.204, 0.212, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pass_label"]
+content_margin_left = 12.0
+content_margin_top = 4.0
+content_margin_right = 12.0
+content_margin_bottom = 4.0
+bg_color = Color(0.4, 0.733, 0.416, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.176, 0.204, 0.212, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_miss_label"]
+content_margin_left = 12.0
+content_margin_top = 4.0
+content_margin_right = 12.0
+content_margin_bottom = 4.0
+bg_color = Color(0.937, 0.325, 0.314, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.176, 0.204, 0.212, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="ScoreBox" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
 script = ExtResource("1_uvh6k")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -20,17 +76,43 @@ anchor_right = 1.0
 offset_bottom = 100.0
 grow_horizontal = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_uvh6k")
+theme_override_styles/panel = SubResource("StyleBoxFlat_score_panel")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-theme_override_constants/separation = 24
+theme_override_constants/separation = 16
 alignment = 1
+
+[node name="BackButton" type="Button" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_back_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_back_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_back_btn")
+text = "Back"
+
+[node name="PassLabel" type="Label" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_pass_label")
+text = "Pass: 0"
 
 [node name="Score" type="Label" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "0 / 20"
+
+[node name="MissLabel" type="Label" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxFlat_tin06")
-text = "1 / 20"
+theme_override_styles/normal = SubResource("StyleBoxFlat_miss_label")
+text = "Miss: 0"
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/BackButton" to="." method="_on_back_pressed"]

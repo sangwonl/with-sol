@@ -1,0 +1,273 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8s3t4t5i6n7g"]
+
+[ext_resource type="Script" uid="uid://c2s3e4t5t6i7n" path="res://scenes/settings.gd" id="1_settings"]
+
+[sub_resource type="Gradient" id="Gradient_sky"]
+colors = PackedColorArray(0.529, 0.808, 0.922, 1, 0.89, 0.949, 0.992, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sky"]
+gradient = SubResource("Gradient_sky")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_title"]
+bg_color = Color(0.31, 0.765, 0.969, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.176, 0.204, 0.212, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_option_btn"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.176, 0.204, 0.212, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_option_hover"]
+bg_color = Color(1, 0.976, 0.769, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.176, 0.204, 0.212, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_start_btn"]
+bg_color = Color(0.4, 0.733, 0.416, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.176, 0.204, 0.212, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_start_hover"]
+bg_color = Color(0.5, 0.8, 0.5, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.176, 0.204, 0.212, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.3)
+shadow_size = 5
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_settings")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_sky")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 60.0
+offset_right = -40.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Header" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBoxContainer/Header"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_title")
+text = "Game Settings"
+
+[node name="TimeSection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TimeLabel" type="Label" parent="VBoxContainer/TimeSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_font_sizes/font_size = 24
+text = "Time per Question"
+horizontal_alignment = 1
+
+[node name="TimeButtons" type="HBoxContainer" parent="VBoxContainer/TimeSection"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Time2s" type="Button" parent="VBoxContainer/TimeSection/TimeButtons"]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_hover_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_pressed_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_option_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_option_hover")
+text = "2s"
+
+[node name="Time5s" type="Button" parent="VBoxContainer/TimeSection/TimeButtons"]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_hover_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_pressed_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_option_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_option_hover")
+text = "5s"
+
+[node name="Time10s" type="Button" parent="VBoxContainer/TimeSection/TimeButtons"]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_hover_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_pressed_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_option_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_option_hover")
+text = "10s"
+
+[node name="Time20s" type="Button" parent="VBoxContainer/TimeSection/TimeButtons"]
+custom_minimum_size = Vector2(80, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_hover_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_pressed_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_option_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_option_hover")
+text = "20s"
+
+[node name="DifficultySection" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="DifficultyLabel" type="Label" parent="VBoxContainer/DifficultySection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_font_sizes/font_size = 24
+text = "Difficulty"
+horizontal_alignment = 1
+
+[node name="DifficultyButtons" type="HBoxContainer" parent="VBoxContainer/DifficultySection"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Easy" type="Button" parent="VBoxContainer/DifficultySection/DifficultyButtons"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_hover_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_pressed_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_option_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_option_hover")
+text = "Easy
+1-digit"
+
+[node name="Normal" type="Button" parent="VBoxContainer/DifficultySection/DifficultyButtons"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_hover_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_pressed_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_option_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_option_hover")
+text = "Normal
+2-digit"
+
+[node name="Hard" type="Button" parent="VBoxContainer/DifficultySection/DifficultyButtons"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_hover_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_pressed_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_option_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_option_hover")
+text = "Hard
+3-digit"
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BackButton" type="Button" parent="VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_hover_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_pressed_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_option_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_option_hover")
+text = "Back"
+
+[node name="StartButton" type="Button" parent="VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_start_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_start_hover")
+text = "START"
+
+[connection signal="pressed" from="VBoxContainer/TimeSection/TimeButtons/Time2s" to="." method="_on_time_2s_pressed"]
+[connection signal="pressed" from="VBoxContainer/TimeSection/TimeButtons/Time5s" to="." method="_on_time_5s_pressed"]
+[connection signal="pressed" from="VBoxContainer/TimeSection/TimeButtons/Time10s" to="." method="_on_time_10s_pressed"]
+[connection signal="pressed" from="VBoxContainer/TimeSection/TimeButtons/Time20s" to="." method="_on_time_20s_pressed"]
+[connection signal="pressed" from="VBoxContainer/DifficultySection/DifficultyButtons/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="VBoxContainer/DifficultySection/DifficultyButtons/Normal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="VBoxContainer/DifficultySection/DifficultyButtons/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/StartButton" to="." method="_on_start_pressed"]
