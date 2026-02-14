@@ -12,6 +12,7 @@ var last_total := 0
 var time_per_question: float = 5.0  # seconds: 2, 5, 10, 20
 var difficulty: String = "normal"    # easy, normal, hard
 var subject: String = "math"         # math, chinese, english
+var bg_theme: String = "sky"         # sky, space
 
 # Best scores per subject
 var best_scores: Dictionary = {
@@ -50,7 +51,8 @@ func set_locale(new_locale: String):
 func _save_to_file():
 	var data = {
 		"best_scores": best_scores,
-		"locale": locale
+		"locale": locale,
+		"bg_theme": bg_theme
 	}
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(JSON.stringify(data))
@@ -68,6 +70,8 @@ func _load_from_file():
 				best_scores[key] = int(data["best_scores"][key])
 		if data.has("locale"):
 			locale = data["locale"]
+		if data.has("bg_theme"):
+			bg_theme = data["bg_theme"]
 
 func _migrate_old_save():
 	var old_path = "user://best_scores.save"

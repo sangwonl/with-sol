@@ -4,6 +4,7 @@ extends Control
 @onready var ko_btn = $VBoxContainer/LangToggle/KoBtn
 
 func _ready() -> void:
+	AudioManager.play_bgm("bgm_menu")
 	_update_best_scores()
 	_update_lang_buttons()
 
@@ -39,24 +40,30 @@ func _make_lang_style(selected: bool) -> StyleBoxFlat:
 	return style
 
 func _on_en_pressed() -> void:
+	AudioManager.play_sfx("click")
 	Global.set_locale("en")
 	get_tree().reload_current_scene()
 
 func _on_ko_pressed() -> void:
+	AudioManager.play_sfx("click")
 	Global.set_locale("ko")
 	get_tree().reload_current_scene()
 
 func _on_math_pressed() -> void:
+	AudioManager.play_sfx("click")
 	Global.subject = "math"
 	get_tree().change_scene_to_file("res://scenes/settings.tscn")
 
 func _on_chinese_pressed() -> void:
+	AudioManager.play_sfx("click")
 	# Not implemented yet
 	pass
 
 func _on_english_pressed() -> void:
+	AudioManager.play_sfx("click")
 	# Not implemented yet
 	pass
 
 func _on_exit_pressed() -> void:
+	AudioManager.play_sfx("click")
 	get_tree().quit()

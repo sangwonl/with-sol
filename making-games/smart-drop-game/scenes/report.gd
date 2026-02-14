@@ -6,6 +6,8 @@ extends Control
 @onready var new_best_label = $VBoxContainer/NewBestLabel
 
 func _ready() -> void:
+	AudioManager.stop_bgm()
+
 	var correct = Global.last_correct
 	var missed = Global.last_missed
 	var total = Global.last_total
@@ -19,11 +21,14 @@ func _ready() -> void:
 		Global.save_best_score(Global.subject, correct)
 		new_best_label.text = tr("NEW_BEST")
 		new_best_label.visible = true
+		AudioManager.play_sfx("newbest")
 	else:
 		new_best_label.visible = false
 
 func _on_home_pressed() -> void:
+	AudioManager.play_sfx("click")
 	get_tree().change_scene_to_file("res://scenes/home.tscn")
 
 func _on_retry_pressed() -> void:
+	AudioManager.play_sfx("click")
 	get_tree().change_scene_to_file("res://scenes/settings.tscn")

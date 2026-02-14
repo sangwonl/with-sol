@@ -2,11 +2,14 @@ extends Control
 
 var selected_time: float = 5.0
 var selected_difficulty: String = "normal"
+var selected_theme: String = "sky"
 
 func _ready() -> void:
+	selected_theme = Global.bg_theme
 	_update_difficulty_labels()
 	_update_time_buttons()
 	_update_difficulty_buttons()
+	_update_theme_buttons()
 
 func _update_difficulty_labels():
 	var easy_btn = $VBoxContainer/DifficultySection/DifficultyButtons/Easy
@@ -36,6 +39,16 @@ func _update_difficulty_buttons():
 		else:
 			btn.remove_theme_stylebox_override("normal")
 
+func _update_theme_buttons():
+	var theme_buttons = $VBoxContainer/ThemeSection/ThemeButtons.get_children()
+	var themes = ["sky", "space"]
+	for i in range(theme_buttons.size()):
+		var btn = theme_buttons[i]
+		if themes[i] == selected_theme:
+			btn.add_theme_stylebox_override("normal", _get_selected_style())
+		else:
+			btn.remove_theme_stylebox_override("normal")
+
 func _get_selected_style() -> StyleBoxFlat:
 	var style = StyleBoxFlat.new()
 	style.bg_color = Color(1, 0.835, 0.31, 1)  # Golden yellow
@@ -53,37 +66,57 @@ func _get_selected_style() -> StyleBoxFlat:
 	return style
 
 func _on_time_2s_pressed() -> void:
+	AudioManager.play_sfx("click")
 	selected_time = 2.0
 	_update_time_buttons()
 
 func _on_time_5s_pressed() -> void:
+	AudioManager.play_sfx("click")
 	selected_time = 5.0
 	_update_time_buttons()
 
 func _on_time_10s_pressed() -> void:
+	AudioManager.play_sfx("click")
 	selected_time = 10.0
 	_update_time_buttons()
 
 func _on_time_20s_pressed() -> void:
+	AudioManager.play_sfx("click")
 	selected_time = 20.0
 	_update_time_buttons()
 
 func _on_easy_pressed() -> void:
+	AudioManager.play_sfx("click")
 	selected_difficulty = "easy"
 	_update_difficulty_buttons()
 
 func _on_normal_pressed() -> void:
+	AudioManager.play_sfx("click")
 	selected_difficulty = "normal"
 	_update_difficulty_buttons()
 
 func _on_hard_pressed() -> void:
+	AudioManager.play_sfx("click")
 	selected_difficulty = "hard"
 	_update_difficulty_buttons()
 
+func _on_sky_pressed() -> void:
+	AudioManager.play_sfx("click")
+	selected_theme = "sky"
+	_update_theme_buttons()
+
+func _on_space_pressed() -> void:
+	AudioManager.play_sfx("click")
+	selected_theme = "space"
+	_update_theme_buttons()
+
 func _on_start_pressed() -> void:
+	AudioManager.play_sfx("click")
 	Global.time_per_question = selected_time
 	Global.difficulty = selected_difficulty
+	Global.bg_theme = selected_theme
 	get_tree().change_scene_to_file("res://scenes/ingame.tscn")
 
 func _on_back_pressed() -> void:
+	AudioManager.play_sfx("click")
 	get_tree().change_scene_to_file("res://scenes/home.tscn")

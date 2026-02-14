@@ -19,9 +19,11 @@ func start_game():
 	var runway_height = Global.bottom_line_y - Global.top_line_y
 	question_speed = runway_height / Global.time_per_question
 
+	AudioManager.play_bgm("bgm_game")
 	spawn_question()
 
 func game_over():
+	AudioManager.play_sfx("gameover")
 	Global.last_correct = correct
 	Global.last_missed = missed
 	Global.last_total = total
@@ -30,6 +32,12 @@ func game_over():
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.top_line_y = 0
+	if Global.bg_theme == "space":
+		$Background.texture = load("res://images/bg-space.png")
+		$Background.position = Vector2(324, 576)
+		$Background.scale = Vector2(0.72, 0.72)
+		$Background.region_enabled = false
+		$Cloud.visible = false
 	start_game()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -71,10 +79,13 @@ func spawn_question():
 	option_values.shuffle()
 	minibox.setup(option_values)
 
-func _on_question_answered(is_correct: bool):
+func _on_question_answered(is_correct: bool, is_miss: bool):
 	if is_correct:
+		AudioManager.play_sfx("correct")
 		correct += 1
 	else:
+		if not is_miss:
+			AudioManager.play_sfx("wrong")
 		missed += 1
 	print('correct: %d, missed: %d' % [correct, missed])
 	spawn_question()

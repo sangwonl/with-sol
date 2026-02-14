@@ -14,6 +14,9 @@ DIFF_NORMAL,Normal,보통
 DIFF_NORMAL_DESC,2-digit,두 자리
 DIFF_HARD,Hard,어려움
 DIFF_HARD_DESC,3-digit,세 자리
+SETTINGS_THEME,Theme,배경 테마
+THEME_SKY,Sky,하늘
+THEME_SPACE,Space,우주
 BTN_BACK,Back,뒤로
 BTN_START,START,시작
 BTN_HOME,Home,홈
