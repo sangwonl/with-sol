@@ -22,8 +22,10 @@ func start_game():
 	spawn_question()
 
 func game_over():
-	print("game over...")
-	get_tree().change_scene_to_file("res://scenes/home.tscn")
+	Global.last_correct = correct
+	Global.last_missed = missed
+	Global.last_total = total
+	get_tree().change_scene_to_file("res://scenes/report.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

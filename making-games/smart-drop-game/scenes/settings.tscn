@@ -121,7 +121,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_title")
-text = "Game Settings"
+text = "SETTINGS_TITLE"
+auto_translate_mode = 1
 
 [node name="TimeSection" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -131,7 +132,8 @@ theme_override_constants/separation = 12
 layout_mode = 2
 theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
 theme_override_font_sizes/font_size = 24
-text = "Time per Question"
+text = "SETTINGS_TIME"
+auto_translate_mode = 1
 horizontal_alignment = 1
 
 [node name="TimeButtons" type="HBoxContainer" parent="VBoxContainer/TimeSection"]
@@ -191,7 +193,8 @@ theme_override_constants/separation = 12
 layout_mode = 2
 theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
 theme_override_font_sizes/font_size = 24
-text = "Difficulty"
+text = "SETTINGS_DIFFICULTY"
+auto_translate_mode = 1
 horizontal_alignment = 1
 
 [node name="DifficultyButtons" type="HBoxContainer" parent="VBoxContainer/DifficultySection"]
@@ -208,8 +211,7 @@ theme_override_colors/font_pressed_color = Color(0.176, 0.204, 0.212, 1)
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_option_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_option_hover")
-text = "Easy
-1-digit"
+text = "Easy"
 
 [node name="Normal" type="Button" parent="VBoxContainer/DifficultySection/DifficultyButtons"]
 custom_minimum_size = Vector2(100, 50)
@@ -220,8 +222,7 @@ theme_override_colors/font_pressed_color = Color(0.176, 0.204, 0.212, 1)
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_option_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_option_hover")
-text = "Normal
-2-digit"
+text = "Normal"
 
 [node name="Hard" type="Button" parent="VBoxContainer/DifficultySection/DifficultyButtons"]
 custom_minimum_size = Vector2(100, 50)
@@ -232,8 +233,7 @@ theme_override_colors/font_pressed_color = Color(0.176, 0.204, 0.212, 1)
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_option_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_option_hover")
-text = "Hard
-3-digit"
+text = "Hard"
 
 [node name="ButtonsContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -249,7 +249,8 @@ theme_override_colors/font_pressed_color = Color(0.176, 0.204, 0.212, 1)
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_option_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_option_hover")
-text = "Back"
+text = "BTN_BACK"
+auto_translate_mode = 1
 
 [node name="StartButton" type="Button" parent="VBoxContainer/ButtonsContainer"]
 custom_minimum_size = Vector2(200, 60)
@@ -260,7 +261,8 @@ theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_start_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_start_hover")
-text = "START"
+text = "BTN_START"
+auto_translate_mode = 1
 
 [connection signal="pressed" from="VBoxContainer/TimeSection/TimeButtons/Time2s" to="." method="_on_time_2s_pressed"]
 [connection signal="pressed" from="VBoxContainer/TimeSection/TimeButtons/Time5s" to="." method="_on_time_5s_pressed"]

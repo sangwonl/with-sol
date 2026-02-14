@@ -4,9 +4,9 @@ func _ready() -> void:
 	pass
 
 func update_score(correct: int, missed: int, index: int, total: int):
-	$PanelContainer/HBoxContainer/PassLabel.text = "Pass: %d" % correct
-	$PanelContainer/HBoxContainer/MissLabel.text = "Miss: %d" % missed
-	$PanelContainer/HBoxContainer/Score.text = "%d / %d" % [index, total]
+	$PanelContainer/HBoxContainer/PassLabel.text = tr("PASS_FORMAT") % correct
+	$PanelContainer/HBoxContainer/MissLabel.text = tr("MISS_FORMAT") % missed
+	$PanelContainer/HBoxContainer/Score.text = tr("SCORE_FORMAT") % [index, total]
 
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/home.tscn")

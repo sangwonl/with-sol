@@ -1,0 +1,25 @@
+key,en,ko
+TITLE_SMART_DROP,SMART DROP,SMART DROP
+SUBJECT_MATH,Math,수학
+SUBJECT_CHINESE,Chinese,한자
+SUBJECT_ENGLISH,English,영어
+BEST_FORMAT,Best: %d,최고: %d
+BTN_EXIT,Exit,종료
+SETTINGS_TITLE,Game Settings,게임 설정
+SETTINGS_TIME,Time per Question,문제당 시간
+SETTINGS_DIFFICULTY,Difficulty,난이도
+DIFF_EASY,Easy,쉬움
+DIFF_EASY_DESC,1-digit,한 자리
+DIFF_NORMAL,Normal,보통
+DIFF_NORMAL_DESC,2-digit,두 자리
+DIFF_HARD,Hard,어려움
+DIFF_HARD_DESC,3-digit,세 자리
+BTN_BACK,Back,뒤로
+BTN_START,START,시작
+BTN_HOME,Home,홈
+BTN_RETRY,Retry,다시하기
+RESULT_TITLE,RESULT,결과
+PASS_FORMAT,Pass: %d,맞춤: %d
+MISS_FORMAT,Miss: %d,놓침: %d
+SCORE_FORMAT,%d / %d,%d / %d
+NEW_BEST,New Best!,최고 기록!

@@ -62,6 +62,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="ScoreBox" type="Control"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
@@ -93,7 +94,8 @@ theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_back_btn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_back_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_back_btn")
-text = "Back"
+text = "BTN_BACK"
+auto_translate_mode = 1
 
 [node name="PassLabel" type="Label" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2

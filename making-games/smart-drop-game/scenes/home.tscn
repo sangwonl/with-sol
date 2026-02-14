@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7h2m4lap1x3y"]
+[gd_scene load_steps=12 format=3 uid="uid://c7h2m4lap1x3y"]
 
 [ext_resource type="Script" uid="uid://d1h2o3m4e5g6d" path="res://scenes/home.gd" id="1_home"]
 
@@ -98,6 +98,38 @@ content_margin_top = 16.0
 content_margin_right = 20.0
 content_margin_bottom = 16.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lang_btn"]
+bg_color = Color(1, 1, 1, 0.6)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.176, 0.204, 0.212, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 12.0
+content_margin_top = 4.0
+content_margin_right = 12.0
+content_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lang_selected"]
+bg_color = Color(1, 0.835, 0.31, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.176, 0.204, 0.212, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 12.0
+content_margin_top = 4.0
+content_margin_right = 12.0
+content_margin_bottom = 4.0
+
 [node name="Home" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -126,6 +158,33 @@ grow_vertical = 2
 theme_override_constants/separation = 40
 alignment = 1
 
+[node name="LangToggle" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+
+[node name="EnBtn" type="Button" parent="VBoxContainer/LangToggle"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_hover_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_pressed_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_lang_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lang_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lang_btn")
+text = "EN"
+
+[node name="KoBtn" type="Button" parent="VBoxContainer/LangToggle"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_hover_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_colors/font_pressed_color = Color(0.176, 0.204, 0.212, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_lang_btn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lang_btn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lang_btn")
+text = "KO"
+
 [node name="LogoContainer" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -134,7 +193,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.176, 0.204, 0.212, 1)
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_logo")
-text = "SMART DROP"
+text = "TITLE_SMART_DROP"
+auto_translate_mode = 1
 
 [node name="SubjectButtons" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -152,7 +212,8 @@ theme_override_font_sizes/font_size = 28
 theme_override_styles/normal = SubResource("StyleBoxFlat_subject_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_subject_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_subject_pressed")
-text = "수학 (Math)"
+text = "SUBJECT_MATH"
+auto_translate_mode = 1
 
 [node name="BestScore" type="Label" parent="VBoxContainer/SubjectButtons/MathButton"]
 layout_mode = 1
@@ -183,7 +244,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_subject_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_subject_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_subject_pressed")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_subject_disabled")
-text = "한자 (Chinese)"
+text = "SUBJECT_CHINESE"
+auto_translate_mode = 1
 
 [node name="BestScore" type="Label" parent="VBoxContainer/SubjectButtons/ChineseButton"]
 layout_mode = 1
@@ -214,7 +276,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_subject_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_subject_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_subject_pressed")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_subject_disabled")
-text = "영어 (English)"
+text = "SUBJECT_ENGLISH"
+auto_translate_mode = 1
 
 [node name="BestScore" type="Label" parent="VBoxContainer/SubjectButtons/EnglishButton"]
 layout_mode = 1
@@ -244,8 +307,11 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_subject_btn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_subject_hover")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_subject_pressed")
-text = "Exit"
+text = "BTN_EXIT"
+auto_translate_mode = 1
 
+[connection signal="pressed" from="VBoxContainer/LangToggle/EnBtn" to="." method="_on_en_pressed"]
+[connection signal="pressed" from="VBoxContainer/LangToggle/KoBtn" to="." method="_on_ko_pressed"]
 [connection signal="pressed" from="VBoxContainer/SubjectButtons/MathButton" to="." method="_on_math_pressed"]
 [connection signal="pressed" from="VBoxContainer/SubjectButtons/ChineseButton" to="." method="_on_chinese_pressed"]
 [connection signal="pressed" from="VBoxContainer/SubjectButtons/EnglishButton" to="." method="_on_english_pressed"]

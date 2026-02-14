@@ -4,8 +4,17 @@ var selected_time: float = 5.0
 var selected_difficulty: String = "normal"
 
 func _ready() -> void:
+	_update_difficulty_labels()
 	_update_time_buttons()
 	_update_difficulty_buttons()
+
+func _update_difficulty_labels():
+	var easy_btn = $VBoxContainer/DifficultySection/DifficultyButtons/Easy
+	var normal_btn = $VBoxContainer/DifficultySection/DifficultyButtons/Normal
+	var hard_btn = $VBoxContainer/DifficultySection/DifficultyButtons/Hard
+	easy_btn.text = tr("DIFF_EASY") + "\n" + tr("DIFF_EASY_DESC")
+	normal_btn.text = tr("DIFF_NORMAL") + "\n" + tr("DIFF_NORMAL_DESC")
+	hard_btn.text = tr("DIFF_HARD") + "\n" + tr("DIFF_HARD_DESC")
 
 func _update_time_buttons():
 	var time_buttons = $VBoxContainer/TimeSection/TimeButtons.get_children()
