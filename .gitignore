@@ -14,9 +14,9 @@ mono_crash.*.json
 
 # Export templates
 /android/
-*.apk
-*.aab
-*.ipa
+# *.apk
+# *.aab
+# *.ipa
 
 # Build artifacts
 /build/
