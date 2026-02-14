@@ -30,4 +30,5 @@ func _on_button_pressed(index: int) -> void:
 	AudioManager.play_sfx("click")
 	var selected_button = buttons[index]
 	var selected_value = selected_button.get_meta("value")
+	selected_button.release_focus()
 	selected.emit(selected_value)

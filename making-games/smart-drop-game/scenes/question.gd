@@ -23,9 +23,10 @@ func check_answer(selected_answer: int):
 	answered.emit(is_correct, false)
 	queue_free()
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	# Auto-size label to fit content and center it on the node origin
+	$Text.size = Vector2.ZERO
+	$Text.position.x = -$Text.size.x / 2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -56,15 +56,14 @@ func spawn_question():
 	var a = randi_range(digit_range.min, digit_range.max)
 	var b = randi_range(digit_range.min, digit_range.max)
 	question.setup(a, b, question_speed)
-	
-	const buffer = 120
-	var viewport = get_viewport().get_visible_rect()
-	var pos_x = randi_range(buffer, viewport.size.x - buffer)
-	question.position = Vector2(pos_x, 0)
-	
 	question.answered.connect(_on_question_answered)
-		
 	add_child(question)
+
+	# Position within viewport bounds based on actual label width
+	var half_width = question.get_node("Text").size.x / 2
+	var viewport = get_viewport().get_visible_rect()
+	var pos_x = randi_range(int(half_width), int(viewport.size.x - half_width))
+	question.position = Vector2(pos_x, 0)
 	cur_question = question
 	cur_question_index += 1
 	scorebox.update_score(correct, missed, cur_question_index, total)
